@@ -69,7 +69,8 @@ function translateLatinCharacter(lettreToMorse) {
   if (lettreToMorse === " ") {
     return "/"; // Séparateur de mots en Morse
   }
-  return latinToMorse[lettreToMorse.toUpperCase()];
+  const upperCaseLetter = lettreToMorse.toUpperCase();
+  return latinToMorse[upperCaseLetter];
 }
 console.log(translateLatinCharacter("A"));
 
