@@ -56,6 +56,12 @@ const morseToLatin = {
   "....": "H",
 };
 
+let inputText = document.querySelector("#textConverter");
+let buttonText = document.querySelector("#textChecked");
+
+let inputMorse = document.querySelector("#morseConverter");
+let buttonMorse = document.querySelector("#morseChecked");
+
 // ETAPE TEXTE
 // Etape 1
 function getLatinCharacterList(text) {
@@ -67,7 +73,7 @@ console.log(getLatinCharacterList("Leo"));
 // Etape 2
 function translateLatinCharacter(lettreToMorse) {
   if (lettreToMorse === " ") {
-    return "/"; // Séparateur de mots en Morse
+    return "/";
   }
   const upperCaseLetter = lettreToMorse.toUpperCase();
   return latinToMorse[upperCaseLetter];
@@ -76,10 +82,23 @@ console.log(translateLatinCharacter("A"));
 
 // Etape 3
 function encode(texte) {
-  return getLatinCharacterList(texte).map(translateLatinCharacter).join(" "); // Convertit chaque lettre en Morse.join(" ");  /
+  return getLatinCharacterList(texte).map(translateLatinCharacter).join(" ");
 }
 
 console.log(encode("Salut ça va"));
+
+buttonText.addEventListener("click", () => {
+  inputMorse.innerHTML = "";
+  let affichageInputMorse = encode(inputText.value);
+  inputMorse.value = affichageInputMorse;
+});
+
+inputText.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    buttonText.click();
+  }
+});
 
 // // ---------------------------------------------------------------------------
 
@@ -92,7 +111,7 @@ function getMorseCharacterList(morse) {
 // Etape 2
 function translateMorseCharacter(morse) {
   if (morse === "/") {
-    return " "; // Séparateur de mots en Morse
+    return " ";
   }
   return morseToLatin[morse];
 }
@@ -106,5 +125,15 @@ function decode(textToMorse) {
 }
 console.log(decode("... .- .-.. ..- - / -.-. .- / ...- .-"));
 
-// Etape 5
-// Pour finir cet exercice, utilisez des champs de saisie input en HTML et des boutons pour traduire du texte et du morse dans un sens ou dans l’autre.
+buttonMorse.addEventListener("click", () => {
+  inputText.innerHTML = "";
+  let affichageInputText = decode(inputMorse.value);
+  inputText.value = affichageInputText;
+});
+
+inputMorse.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    buttonMorse.click();
+  }
+});

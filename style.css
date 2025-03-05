@@ -1,0 +1,107 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  background: #f4f7fc;
+  color: #333;
+}
+
+.headerContainer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.boxContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 100px;
+  margin-top: -110px;
+}
+
+.textContainer,
+.morseContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 300px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.textContainer:hover,
+.morseContainer:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+input {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #3b82f6;
+  background-color: #ffffff;
+  outline: none;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3b82f6; /* Bleu moderne */
+  color: #fff; /* Texte blanc */
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px; /* Bordures arrondies */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  padding: 10px 10px;
+}
+
+button:hover {
+  background-color: #2563eb; /* Couleur bleue plus foncée au survol */
+}
+
+button:active {
+  background-color: #1d4ed8; /* Couleur encore plus foncée lorsqu'on clique */
+}
+
+button:focus {
+  outline: none; /* Supprime le contour bleu au focus */
+}
+
+@media (max-width: 930px) {
+  .boxContainer {
+    flex-direction: column;
+    padding-top: 100px;
+    gap: 40px;
+  }
+}
