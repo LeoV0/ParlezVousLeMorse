@@ -104,4 +104,12 @@ button:focus {
     padding-top: 100px;
     gap: 40px;
   }
+  .textContainer,
+  .morseContainer {
+    height: 250px; /* Réduire la hauteur des cartes pour les écrans plus petits */
+  }
+
+  input {
+    height: 100px; /* Réduire la hauteur des inputs pour les écrans plus petits */
+  }
 }
